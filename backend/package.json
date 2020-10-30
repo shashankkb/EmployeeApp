@@ -1,0 +1,25 @@
+{
+  "name": "newrest",
+  "version": "1.0.0",
+  "description": "The basic rest api struct",
+  "main": "app.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "shashank",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "sync-mysql": "^3.0.1",
+    "sync-sql": "^1.0.2"
+  }
+}

@@ -1,0 +1,74 @@
+<div class="container" style="display: none;">
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0 d-inline">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Collapsible #1
+                    </button>
+                 </h5>
+                 
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body" id="child1">
+                    <div class="card">
+                        <div class="card-header">
+                            <a href="#" data-toggle="collapse" data-target="#collapseOneA">Child A</a>
+                        </div>
+                        <div class="card-body collapse" data-parent="#child1" id="collapseOneA">
+                            Crunch wolf moon tempor, sunt aliqua put a bird.
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <a href="#" data-toggle="collapse" data-target="#collapseOneB">Child B</a>
+                        </div>
+                        <div class="card-body collapse" data-parent="#child1" id="collapseOneB">
+                            Another flipp runch wolf moon tempor, sunt aliqua put a bird.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+<div class="container">
+    <div id="accordion">
+     <div class="card" *ngFor="let company of Company; let i = index" [attr.data-index]="i">
+            
+           
+        <button class="btn btn-primary collapsed" data-toggle="collapse" [attr.data-target]="'#collapse'+i" aria-expanded="false" aria-controls="collapseThree">
+          {{company.CompanyName}}
+        </button>
+  
+           
+            <div [attr.id]="'collapse'+i" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div class="card-body">
+                    <div class="card-body" id="child" *ngFor="let employee of toArray(company.Employees)">
+                        <div class="card">
+                            
+                                <a class="btn btn-success" data-toggle="collapse" [attr.data-target]="'#collapseOneA'+employee.details.id">{{employee.Name}}</a>
+                            
+                            <div class="card-body collapse" data-parent="#child1" [attr.id]="'collapseOneA'+employee.details.id">
+                                <p>Father's Name - {{employee.details.father_name}}</p>
+                                <p>Mother's Name - {{employee.details.mother_name}}</p>
+                                <p>Area - {{employee.details.area}}</p>
+                                <p>City - {{employee.details.city}}</p>
+                                <p>State - {{employee.details.state}}</p>
+                                <p>Country - {{employee.details.country}}</p>
+                                <p>Spouse's Name - {{employee.details.spouse_name}}</p>
+                                <p>Pincode - {{employee.details.pincode}}</p>
+                                <p>Sex - {{(employee.details.sex == 0) ? "Male":"Female"}}</p>
+                                <p>Company ID - {{employee.details.company_id}}</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
